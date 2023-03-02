@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="author" content="XB Software" />
+		<meta name="publisher" content="XB Software" />
+		<meta name="copyright" content="XB Software" />
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,  user-scalable=no, shrink-to-fit=no"
+		/>
+
+	
+
+		<!-- Kanban -->
+		<link rel="stylesheet" href="../dist/kanban.css" />
+		<script src="../dist/kanban.js"></script>
+
+		<!-- Demo data -->
+		<script src="./common/data.js"></script>
+		<link rel="stylesheet" href="../assets/demos.css" />
+
+		<title>Taskboard</title>
+	</head>
+
+	<body>
+		<div class="g-wrap">
+		
+
+			
+			<div id="root"></div>
+		</div>
+
+		<script>
+			const { Kanban, Toolbar, defaultEditorShape } = kanban;
+			const { columns, cards, rows, users, cardShape, editorShape } =
+				getData();
+
+			const board = new Kanban("#root", {
+				columns,
+				cards,
+				rows,
+				rowKey: "type",
+				cardShape,
+				editorShape: [...defaultEditorShape, ...editorShape],
+			});
+			new Toolbar("#toolbar", {
+				api: board.api,
+			});
+		</script>
+	</body>
+</html>

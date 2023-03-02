@@ -1,0 +1,174 @@
+# Version 1.3 (September 29, 2022)
+
+### New functionality
+
+- Duplicating cards via API and Interface
+- Exporting Kanban data to a JSON file
+- Managing Kanban history:
+    - via `Undo` and `Redo` controls on Toolbar
+    - via shortcuts:
+        - `Ctrl (Command)`+`Z` - undo action
+        - `Ctrl (Command)`+`Y` or `Ctrl (Command)`+`Shift`+`Z` - redo action
+    - via API
+
+### New API
+
+- Events: `duplicate-card`
+- Methods: `duplicateCard()`, `export.json()`
+- Properties: `editor` and `history`
+- Common settings: `$meta`
+    
+
+### Deprecated API
+
+- Properties: `editorAutoSave`
+
+### Updates
+
+- #### Events
+
+    - The `update-card` event of Kanban is updated
+    - The `update-column` event of Kanban is updated
+    - The `update-row` event of Kanban is updated
+
+- #### Methods
+
+    - The `updateCard()` method of Kanban is updated
+    - The `updateColumn()` method of Kanban is updated
+    - The `updateRow()` method of Kanban is updated
+
+- #### Properties
+
+    - The `items` property of Toolbar is extended by the `undo` and `redo` parameters (controls)
+    - The `editorShape` property is extended by the `dateRange` type
+
+
+# Version 1.2.2 (August 30, 2022)
+
+### Fixes​
+
+- Duplicating of some icons in menu and toolbar
+
+
+# Version 1.2.1 (July 28, 2022)
+
+### Fixes​
+
+- Card height doesn't work with enabled scrollType:"column" 
+- Uploader doesn't show uploaded files in card editor
+- Localization doesn't work for "combo" and "progress" fields in card editor
+
+
+# Version 1.2.0 (June 29, 2022)
+
+### New functionality​
+
+- Adding new cards via a column menu (see the example)
+- Lazy rendering (see the example)
+- Scrolling for separate columns (see the example)
+- Scrolling Kanban to the new created cards, columns and rows (API and UI) (see the example)
+- Sorting cards (API and UI) (see the example)
+
+### New API​
+
+- Events: scroll, set-edit, and set-sort
+- Methods: scroll(), setEdit(), and setSort()
+- Properties: cardHeight, columnShape, rowShape, renderType, and scrollType
+
+### Updates​
+
+#### Properties​
+
+- The items property of Toolbar is updated
+- The start_date, end_date, menu and users parameters (fields) of the cardShape property are updated
+- The multiselect type of the editorShape property is updated
+  
+#### Methods​
+
+- The api.getReactiveState() method is updated
+- The api.getState() method is updated
+- The api.getStores() method is updated
+- The setLocale() method of Kanban is updated
+- The setLocale() method of Toolbar is updated
+
+#### Common​
+
+- Prefixes of CSS classes (see the Stylization section)
+- Locale structure (see the Localization section)
+
+### Fixes​
+
+- Binding cards to swimlanes via the rowKey config works incorrectly
+- Clicking on card menu opens editor
+- Dragging several cards works incorrectly
+- Editing cards when select: false (readonly config) works incorrectly
+- Selecting new added cards via the addCard() method works incorrectly
+- The label: false and menu: false parameters of the cardShape property work incorrectly
+
+
+# Version 1.1.1 (February 28, 2022)
+
+### Fixes
+
+- Custom editor field doesn't work without defining it in a card shape
+- Selecting the required card from the dropdown menu of the search bar
+
+
+# Version 1.1 (February 15, 2022)
+
+### New functionality
+
+- The ability to collapse/uncollapse columns using an arrow on the left of the column label
+- The ability to limit the number of cards for the columns and swimlanes
+- The ability to move columns via the context menu (a 3 dots icon)
+- The ability to move rows via the context menu (a 3 dots icon)
+- The ability to select multiple cards of the same column using the familiar Shift + click combination
+- The ability to use TypeScript definitions of Kanban
+
+### New API
+
+- New events for moving columns and rows: move-column and move-row
+- New methods for moving columns and rows: moveColumn() and moveRow()
+
+### Updates
+
+- The columns property was updated and extended by the following parameters:
+  - collapsed
+  - limit
+  - strictLimit
+
+
+# Version 1.0 (November 23, 2021)
+
+### Initial functionality
+
+- The ability to work with cards in the following way:
+  - add new cards
+  - select cards (multiselection)
+  - delete cards
+  - search for cards
+  - reorder cards by dragging them to the desired column (and row)
+  - manage the card data via the editor:
+    - label
+    - description
+    - progress
+    - start date
+    - end date
+    - color
+    - priority
+    - attachment (files and pictures)
+    - custom fields
+
+- Ability to work with columns and rows in the following way:
+  - add new columns and rows
+  - delete columns and rows
+  - rename columns and rows
+  - collapse/uncollapse rows
+
+- Localization
+
+- Integration with backend (Go and Node)
+
+- Cross browser compatibility
+
+- Touch support
